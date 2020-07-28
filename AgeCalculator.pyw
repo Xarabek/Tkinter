@@ -34,7 +34,7 @@ def time_lived():
     weeks = days // 7
     years = days // 365
 
-    time_label = Label(root, text="you lived:\n {} seconds,\n {} days,\n {} weeks,\n {} years.".format(seconds, days, weeks, years))
+    time_label = Label(root, text="you lived:\n{} seconds,\n{} days,\n{} weeks,\n{} years.".format(seconds, days, weeks, years))
     time_label.grid(row=3, column=0)
 
 
