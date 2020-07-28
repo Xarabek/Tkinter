@@ -55,7 +55,7 @@ def send_mail():
     subject = subject_field.get()
     text = text_field.get("1.0", END)
     print(sender, password_of_sender, reciever_of_mail, subject, text)
-    port = 587  # For starttls
+    port = 587  
     smtp_server = "smtp.gmail.com"
     sender_email = sender
     receiver_email = reciever_of_mail
@@ -67,9 +67,9 @@ def send_mail():
 
     context = ssl.create_default_context()
     with smtplib.SMTP(smtp_server, port) as server:
-        server.ehlo()  # Can be omitted
+        server.ehlo()  
         server.starttls(context=context)
-        server.ehlo()  # Can be omitted
+        server.ehlo()  
         server.login(sender_email, password_later)
         server.sendmail(sender_email, receiver_email, message)
 
