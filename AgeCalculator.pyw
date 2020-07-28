@@ -15,7 +15,7 @@ reminder = Label(root, text="the format of the date: DD-MM-YYYY", fg="red")
 reminder.grid(row=1, column=2)
 
 
-def time_lived():
+def time_lived(event=None):
     # get entered date!
     date_entered = datefield.get()
     parsed_date_entered = date_entered.split("-")
@@ -40,5 +40,5 @@ def time_lived():
 
 submit_button = Button(root, text="submit", command=time_lived)
 submit_button.grid(row=0, column=4, padx=5)
-
+root.bind('<Return>', time_lived)
 root.mainloop()
