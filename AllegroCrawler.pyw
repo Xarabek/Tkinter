@@ -36,17 +36,20 @@ def get_product():
     return products
 
 
-def get_me():
+def get_me(event=None):
     x = list(get_product())
     for thing in range(len(x)):
         answer.insert(INSERT, x[thing] + '\n')
 
 
 topframe = Frame(root)
+label = Label(topframe, text="what are you looking for: ", fg="green")
+label.pack()
 entry = Entry(topframe)
 entry.pack()
 button = Button(topframe, text="search!", command=get_me)
 button.pack()
+
 topframe.pack(side=TOP)
 
 bottomframe = Frame(root)
@@ -56,5 +59,6 @@ answer = Text(bottomframe, width=50, height=20, yscrollcommand=scroll.set, wrap=
 scroll.config(command=answer.yview)
 answer.pack()
 bottomframe.pack()
+root.bind('<Return>', get_me)
 
 root.mainloop()
